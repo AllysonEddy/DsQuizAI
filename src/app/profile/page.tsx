@@ -20,7 +20,7 @@ const page = async () => {
                         <FaTrophy /> Total Points
                     </h2>
                     <p className="text-5xl font-bold">{currentUser?.data?.quizResults[0]?.quizScore}</p>
-                    <Achievements achievements={currentUser?.data?.user?.achievements || []} />
+                    <Achievements achievements={currentUser?.data?.user?.achievements ?? []} />
         </div>
       </div>
       </main>
