@@ -5,8 +5,12 @@ import {TbMoodCry} from "react-icons/tb"
 import {GiLaurelsTrophy,GiMuscleUp, GiStarMedal,GiBookAura  } from "react-icons/gi"
 import { FaFaceSadCry } from "react-icons/fa6"; 
 
-const Achievements = ({ achievements }: { achievements: string[] }) => {
-  const [selectedAchievement, setSelectedAchievement] = useState(null);
+interface AchievementsProps {
+  achievements: string[];
+}
+
+const Achievements: React.FC<AchievementsProps> = ({ achievements }) => {
+  const [selectedAchievement, setSelectedAchievement] = useState<string | null>(null);
   const achievementIcons = {
     "Revise Your Knowledge": { icon: <TbMoodCry className="text-3xl" />, description: "You earned 0 point in one of the quizzes. Review topics to improve your knowledge." },
     "Better Luck Next Time": { icon: <FaFaceSadCry className="text-3xl" />, description: "You earned less than 30 point in one of the quizzes. Don't worry, try again to improve your score!" },
@@ -21,9 +25,9 @@ const Achievements = ({ achievements }: { achievements: string[] }) => {
         <FaMedal /> Achievements
       </h3>
       <ul className="list-none bg-blue-600 p-4 rounded-lg shadow-lg">
-        {achievements.map((achievement: keyof typeof achievementIcons, index: number) => (
-          <li key={index} className="flex items-center gap-2 text-lg cursor-pointer" onClick={() => setSelectedAchievement(achievement as any)}>
-            {achievementIcons[achievement].icon}
+        {achievements.map((achievement, index: number) => (
+          <li key={index} className="flex items-center gap-2 text-lg cursor-pointer" onClick={() => setSelectedAchievement(achievement)}>
+            {achievementIcons[achievement as keyof typeof achievementIcons].icon}
             <span className="text-xl">{achievement}</span>
           </li>
         ))}

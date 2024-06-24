@@ -19,8 +19,8 @@ const page = async () => {
         <h2 className="text-4xl flex items-center justify-center gap-2">
                         <FaTrophy /> Total Points
                     </h2>
-                    <p className="text-5xl font-bold">{currentUser?.data?.quizResults[0].quizScore}</p>
-                    <Achievements achievements={currentUser?.data?.user.achievements} />
+                    <p className="text-5xl font-bold">{currentUser?.data?.quizResults[0]?.quizScore}</p>
+                    <Achievements achievements={currentUser?.data?.user?.achievements || []} />
         </div>
       </div>
       </main>
