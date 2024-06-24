@@ -5,7 +5,7 @@ import {TbMoodCry} from "react-icons/tb"
 import {GiLaurelsTrophy,GiMuscleUp, GiStarMedal,GiBookAura  } from "react-icons/gi"
 import { FaFaceSadCry } from "react-icons/fa6"; 
 
-const Achievements = ({ achievements }) => {
+const Achievements = ({ achievements }: { achievements: string[] }) => {
   const [selectedAchievement, setSelectedAchievement] = useState(null);
   const achievementIcons = {
     "Revise Your Knowledge": { icon: <TbMoodCry className="text-3xl" />, description: "You earned 0 point in one of the quizzes. Review topics to improve your knowledge." },
